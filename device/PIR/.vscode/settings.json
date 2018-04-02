@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.env.osx": {
+        "PATH": "/Users/hedypamungkas/.platformio/penv/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/X11/bin:/Users/hedypamungkas/go/bin:/Users/hedypamungkas/Library/Android/sdk/tools:/Users/hedypamungkas/Library/Android/sdk/platform-tools"
+    }
+}

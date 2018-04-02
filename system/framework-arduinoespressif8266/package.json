@@ -1,0 +1,7 @@
+{
+    "description":"Arduino Wiring-based Framework (ESP8266 Core)",
+    "name":"framework-arduinoespressif8266",
+    "system":"all",
+    "url":"https://github.com/esp8266/Arduino",
+    "version":"1.20300.1"
+}

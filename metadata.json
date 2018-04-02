@@ -1,0 +1,276 @@
+//sensor
+
+{
+    "deviceName": "LDR-001",
+    "category": "LDR",
+    "deviceType": "sensor",
+    "ackTopic": "kardel/ack/sensor/LDR-001",
+    "location": "kamar",
+    "service": {
+        "light": {
+            "name": "light",
+            "unit": " lux",
+            "data": 0
+        }
+    }
+}
+
+{
+    "deviceName": "PIR-001",
+    "category": "PIR",
+    "deviceType": "sensor",
+    "ackTopic": "kardel/ack/sensor/PIR-001",
+    "location": "kamar",
+    "service": {
+        "light": {
+            "name": "motion",
+            "unit": "",
+            "data": "True"
+        }
+    }
+}
+
+//actuator
+//category must list
+
+{
+    "deviceName": "BULB-001",
+    "category": "BULB",
+    "deviceType": "actuator",
+    "ackTopic": "kardel/ack/actuator/BULB-001",
+    "location": "kamar",
+    "service": {
+        "lamp": {
+            "name": "lamp",
+            "unit": "",
+            "data": "True"
+        }
+        ,
+        "level": {
+            "name": "level",
+            "unit": " %",
+            "data": 0
+        }
+    },
+    "integration": {
+        "max": 2,
+        "category": [
+            "LDR", "PIR"
+        ]
+    }
+}
+
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/broadcast -m "{\"deviceName\":\"LDR-001\",\"category\":\"LDR\",\"deviceType\":\"sensor\",\"ackTopic\":\"kardel/ack/sensor/LDR-001\",\"location\":\"kamar\",\"service\":{\"light\":{\"name\":\"light\",\"unit\":\" lux\",\"data\":0}}}"
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/broadcast -m "{\"deviceName\":\"LDR-002\",\"category\":\"LDR\",\"deviceType\":\"sensor\",\"ackTopic\":\"kardel/ack/sensor/LDR-002\",\"location\":\"taman\",\"service\":{\"light\":{\"name\":\"light\",\"unit\":\" lux\",\"data\":0}}}"
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/broadcast -m "{\"deviceName\":\"PIR-001\",\"category\":\"PIR\",\"deviceType\":\"sensor\",\"ackTopic\":\"kardel/ack/sensor/PIR-001\",\"location\":\"kamar\",\"service\":{\"motion\":{\"name\":\"motion\",\"unit\":\"\",\"data\":\"True\"}}}"
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/broadcast -m "{\"deviceName\":\"PIR-002\",\"category\":\"PIR\",\"deviceType\":\"sensor\",\"ackTopic\":\"kardel/ack/sensor/PIR-002\",\"location\":\"taman\",\"service\":{\"light\":{\"name\":\"motion\",\"unit\":\"\",\"data\":\"True\"}}}"
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/broadcast -m "{\"deviceName\":\"BULB-001\",\"category\":\"BULB\",\"deviceType\":\"actuator\",\"integration\":{\"max\":2,\"category\":[\"LDR\",\"PIR\"]},\"ackTopic\":\"kardel/ack/actuator/BULB-001\",\"location\":\"kamar\",\"service\":{\"lamp\":{\"name\":\"lamp\",\"unit\":\"\",\"data\":\"True\"},\"level\":{\"name\":\"level\",\"unit\":\" %\",\"data\":0}}}"
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/broadcast -m "{\"deviceName\":\"BULB-002\",\"category\":\"BULB\",\"deviceType\":\"actuator\",\"integration\":{\"max\":1,\"category\":[\"LDR\",\"PIR\"]},\"ackTopic\":\"kardel/ack/actuator/BULB-002\",\"location\":\"taman\",\"service\":{\"lamp\":{\"name\":\"lamp\",\"unit\":\"\",\"data\":\"True\"}}}"
+
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/broadcast -m "{\"deviceName\":\"BUZZ-001\",\"category\":\"BUZZER\",\"deviceType\":\"sensor\",\"ackTopic\":\"kardel/ack/sensor/LDR-001\",\"location\":\"kamar\",\"service\":{\"light\":{\"name\":\"light\",\"unit\":\" lux\",\"data\":0}}}"
+
+// SENDING DATA!!!
+{
+    "deviceName": "LDR-001",
+    "deviceType": "sensor",
+    "service": {
+        "light": {
+            "name": "light",
+            "unit": " lux",
+            "data": 0
+        }
+    }
+}
+
+{
+    "deviceName": "PIR-001",
+    "deviceType": "sensor",
+    "service": {
+        "motion": {
+            "name": "motion",
+            "unit": "",
+            "data": "True"
+        }
+    }
+}
+
+{
+    "deviceName": "BULB-001",
+    "deviceType": "actuator",
+    "service": {
+        "lamp": {
+            "name": "lamp",
+            "unit": "",
+            "data": "True"
+        },
+        "level": {
+            "name": "level",
+            "unit": " %",
+            "data": 0
+        }
+    }
+}
+
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/pervasive/kamar/sensor/LDR-001/data -m "{\"deviceName\":\"LDR-001\",\"deviceType\":\"sensor\",\"service\":{\"light\":{\"name\":\"light\",\"unit\":\" lux\",\"data\":0}}}"
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/pervasive/kamar/sensor/PIR-001/data -m "{\"deviceName\":\"PIR-001\",\"deviceType\":\"sensor\",\"service\":{\"motion\":{\"name\":\"motion\",\"unit\":\"\",\"data\":\"10\"}}}"
+// mosquitto_pub -d -u admintes -P admin123 -h ngehubx.online -t kardel/pervasive/kamar/actuator/BULB-001/data -m "{\"deviceName\":\"BULB-001\",\"deviceType\":\"actuator\",\"service\":{\"lamp\":{\"name\":\"lamp\",\"unit\":\"\",\"data\":\"1\"},\"level\":{\"name\":\"level\",\"unit\":\" %\",\"data\":0}}}"
+
+{
+	"actuator": {
+		"BULB-002": {
+			"category": "BULB",
+			"deviceName": "BULB-002",
+			"service": {
+				"lamp": {
+					"data": "False",
+					"name": "lamp",
+					"unit": ""
+				},
+				"level": {
+					"data": 70,
+					"name": "level",
+					"unit": " %"
+				}
+			},
+			"integration": {
+				"category": [
+					"LDR",
+					"PIR"
+				],
+				"max": 1
+			},
+			"ackTopic": "kardel/ack/actuator/BULB-002",
+			"deviceType": "actuator",
+			"location": "taman"
+		},
+		"BULB-001": {
+			"category": "BULB",
+			"deviceName": "BULB-001",
+			"service": {
+				"lamp": {
+					"data": "True",
+					"name": "lamp",
+					"unit": ""
+				},
+				"level": {
+					"data": 0,
+					"name": "level",
+					"unit": " %"
+				}
+			},
+			"integration": {
+				"category": [
+					"LDR",
+					"PIR"
+				],
+				"max": 2
+			},
+			"ackTopic": "kardel/ack/actuator/BULB-001",
+			"deviceType": "actuator",
+			"location": "kamar"
+		}
+	},
+	"sensor": {
+		"PIR-001": {
+			"category": "PIR",
+			"deviceName": "PIR-001",
+			"service": {
+				"light": {
+					"data": "False",
+					"name": "motion",
+					"unit": ""
+				}
+			},
+			"ackTopic": "kardel/ack/sensor/PIR-001",
+			"deviceType": "sensor",
+			"location": "kamar"
+		},
+		"LDR-002": {
+			"category": "LDR",
+			"deviceName": "LDR-002",
+			"service": {
+				"light": {
+					"data": 70,
+					"name": "light",
+					"unit": " lux"
+				}
+			},
+			"ackTopic": "kardel/ack/sensor/LDR-002",
+			"deviceType": "sensor",
+			"location": "taman"
+		},
+		"BUZZ-001": {
+			"category": "BUZZER",
+			"deviceName": "BUZZ-001",
+			"service": {
+				"light": {
+					"data": 0,
+					"name": "light",
+					"unit": " lux"
+				}
+			},
+			"ackTopic": "kardel/ack/sensor/BUZZ-001",
+			"deviceType": "sensor",
+			"location": "kamar"
+		},
+		"PIR-003": {
+			"category": "PIR",
+			"deviceName": "PIR-003",
+			"service": {
+				"light": {
+					"data": "True",
+					"name": "motion",
+					"unit": ""
+				}
+			},
+			"ackTopic": "kardel/ack/sensor/PIR-003",
+			"deviceType": "sensor",
+			"location": "taman"
+		},
+		"LDR-001": {
+			"category": "LDR",
+			"deviceName": "LDR-001",
+			"service": {
+				"light": {
+					"data": 20,
+					"name": "light",
+					"unit": " lux"
+				}
+			},
+			"ackTopic": "kardel/ack/sensor/LDR-001",
+			"deviceType": "sensor",
+			"location": "kamar"
+		}
+	},
+	"locations": {
+		"kamar": [
+			{
+				"deviceName": "BULB-001",
+				"deviceType": "actuator",
+				"topic_pervasive": "kardel/pervasive/kamar/actuator/BULB-001/data"
+			},
+			{
+				"deviceName": "LDR-001",
+				"deviceType": "sensor",
+				"topic_pervasive": "kardel/pervasive/kamar/sensor/LDR-001/data"
+			},
+			{
+				"deviceName": "PIR-001",
+				"deviceType": "sensor",
+				"topic_pervasive": "kardel/pervasive/kamar/sensor/PIR-001/data"
+			}
+		],
+		"taman": [
+			{
+				"deviceName": "BULB-002",
+				"deviceType": "actuator",
+				"topic_pervasive": "kardel/pervasive/taman/actuator/BULB-002/data"
+			},
+			{
+				"deviceName": "LDR-002",
+				"deviceType": "sensor",
+				"topic_pervasive": "kardel/pervasive/taman/sensor/LDR-002/data"
+			}
+		]
+	}
+}
